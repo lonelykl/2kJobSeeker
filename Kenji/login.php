@@ -160,7 +160,7 @@
 					
 <h3>Login</h3>
 					
-<form action="juclogin.php" method="post">
+<form name="loginForm" action="juclogin.php" onsubmit="return(validate());" method="post">
 
 						
 <div class="row form-group">
@@ -258,6 +258,9 @@
 	
 <script src="js/main.js"></script>
 
+<!-- validate -->
+
+<script src="js/test.js"></script>
 	
 </body>
 
