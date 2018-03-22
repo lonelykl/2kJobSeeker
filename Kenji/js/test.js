@@ -26,59 +26,59 @@ function validate()
 	  function validatejob()
       {
       
-         if( document.createJobForm.jname.value == "" )
+         if( document.createJobForm.txtJobName.value == "" )
          {
             alert( "Please provide job name!" );
-            document.createJobForm.jname.focus() ;
+            document.createJobForm.txtJobName.focus() ;
             return false;
          }
          
-         if( document.createJobForm.address.value == "" )
+         if( document.createJobForm.txtAddress.value == "" )
          {
             alert( "Please provide address!" );
-            document.createJobForm.address.focus() ;
+            document.createJobForm.txtAddress.focus() ;
             return false;
          }
 		 
-		 if( document.createJobForm.jid.value == "" )
+		 if( document.createJobForm.txtMaxParticipants.value == "" )
          {
-            alert( "Please provide Job ID!" );
-            document.createJobForm.jid.focus() ;
+            alert( "Please provide Max Participants!" );
+            document.createJobForm.txtMaxParticipants.focus() ;
             return false;
          }
 		 
-		 if( document.createJobForm.description.value == "" )
+		 if( document.createJobForm.txtDescription.value == "" )
          {
             alert( "Please provide Description!" );
-            document.createJobForm.description.focus() ;
+            document.createJobForm.txtDescription.focus() ;
             return false;
          }
 		 
-		 if( document.createJobForm.jobtype.value == "" )
+		 if( document.createJobForm.txtJobType.value == "" )
          {
             alert( "Please provide job type!" );
-            document.createJobForm.jobtype.focus() ;
+            document.createJobForm.txtJobType.focus() ;
             return false;
          }
 		 
-		 if( document.createJobForm.pic.value == "" )
+		 if( document.createJobForm.txtPersonInCharge.value == "" )
          {
             alert( "Please provide name for person in charge!" );
-            document.createJobForm.pic.focus() ;
+            document.createJobForm.txtPersonInCharge.focus() ;
             return false;
          }
 		 
-		 if( document.createJobForm.contact.value == "" )
+		 if( document.createJobForm.txtContact.value == "" )
          {
             alert( "Please provide contact number!" );
-            document.createJobForm.contact.focus() ;
+            document.createJobForm.txtContact.focus() ;
             return false;
          }
          
-         if( document.createJobForm.skill.value == "" )
+         if( document.createJobForm.txtSkill.value == "" )
          {
             alert( "Please provide skill!" );
-            document.createJobForm.skill.focus() ;
+            document.createJobForm.txtSkill.focus() ;
             return false;
          }
 		 
