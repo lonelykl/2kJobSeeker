@@ -104,60 +104,60 @@
 			<div class="row">
 				<div class="col-md-6 animate-box">
 					<h3>Create Job</h3>
-					<form action="#">
+					<form name="createJobForm" action="#" onsubmit="return(validatejob());">
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="fname">Job Name</label> -->
-								<input type="text" id="name" class="form-control" placeholder="Enter Job Name">
+								<input type="text" name="txtJobName" id="name" class="form-control" placeholder="Enter Job Name">
 							</div>
 							
 						</div>
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Address</label> -->
-								<input type="text" id="address" class="form-control" placeholder="Enter Address">
+								<input type="text" name="txtAddress" id="address" class="form-control" placeholder="Enter Address">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!-- <label for="email">JobID</label> -->
-								<input type="text" id="jid" class="form-control" placeholder="Enter Job ID">
+								<!-- <label for="email">MaxParticipants</label> -->
+								<input type="text" name="txtMaxParticipants" id="mp" class="form-control" placeholder="Enter Job ID">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Description</label> -->
-								<input type="text" id="description" class="form-control" placeholder="Enter Description">
+								<input type="text" name="txtDescription" id="description" class="form-control" placeholder="Enter Description">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">JobType</label> -->
-								<input type="text" id="jobtype" class="form-control" placeholder="Enter Job Type">
+								<input type="text" name="txtJobType" id="jobtype" class="form-control" placeholder="Enter Job Type">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">PersonInCharge</label> -->
-								<input type="text" id="pic" class="form-control" placeholder="Enter Person In Charge">
+								<input type="text" name="txtPersonInCharge" id="pic" class="form-control" placeholder="Enter Person In Charge">
 							</div>
 						</div>
 						
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="email">Contact</label> -->
-								<input type="text" id="contact" class="form-control" placeholder="Enter Contact Nuumber">
+								<input type="text" name="txtContact" id="contact" class="form-control" placeholder="Enter Contact Nuumber">
 							</div>
 						</div>
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<!-- <label for="password">Skill</label> -->
-								<input type="text" id="skill" class="form-control" placeholder="Enter Skill">
+								<input type="text" name="txtSkill" id="skill" class="form-control" placeholder="Enter Skill">
 							</div>
 						</div>
 
@@ -201,6 +201,7 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script src="js/test.js"></script>
 
 	</body>
 </html>
