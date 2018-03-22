@@ -103,7 +103,7 @@
 					
 <h3>Register</h3>
 					
-<form action="jucregister.php" method="post">
+<form name="registerForm" action="jucregister.php" onsubmit="return(validateregister());" method="post">
 						
 <div class="row form-group">
 							
@@ -216,6 +216,10 @@
 <!-- Main -->
 	
 <script src="js/main.js"></script>
+
+<!-- validate -->
+
+<script src="js/test.js"></script>
 
 	
 </body>
