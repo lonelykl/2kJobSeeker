@@ -26,7 +26,7 @@ $stmt->bind_result($token2,$token3,$token4,$token5,$token6);
 while ( $stmt-> fetch() ) { 
 ?>
 <table border ='1'>
-<tr>
+<tr style="display:none">
 <td>
 Session ID
 </td>
@@ -103,15 +103,15 @@ Job Type
  $stmt->close();?>
 </table>
 <br>
-<table border='1'>
+<table border='0'>
 <tr>
 <td width='100px'>
 <button onclick="goBack()">Back</button>
 </td>
-<td width='100px'>
+<td width='10px'>
 </td>
 <td width='100px'>
-<button onclick="goBack()">Back</button>
+<button onclick="goBack()">Apply</button>
 </td>
 </tr>
 </table>
