@@ -67,18 +67,20 @@ if (isset($_REQUEST["userID"])) {
     $Session_UserID = '';
     $Session_UserType = '';
 }
-?>
+?>	
 <body>
 		
-	<div class="fh5co-loader"></div>
+	
+<div class="fh5co-loader"></div>
 	
 	<div id="page">
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-2" style = "width: 30%;">
-					
-<div id="fh5co-logo"><?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Jinjang Utara Community</a></div>
+					<div id="fh5co-logo">
+<?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Jinjang Utara Community</a>
+</div>
 				</div>
 				<div class="col-xs-10 text-right menu-1" style = "width: 68%;">
 					
@@ -107,7 +109,7 @@ if ($Session_UserID != ''){
 <?php 
 if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){						
 ?>
-<li><?php echo '<a href="createjob.php'.$sessionInfoCond.'">';?>Create Job</a></li>
+<li class="active"><?php echo '<a href="createjob.php'.$sessionInfoCond.'">';?>Create Job</a></li>
 						
 <?php } ?>
 <?php 
@@ -123,7 +125,9 @@ if ($Session_UserID == ''){
 <?php
 }
 ?>						
-</ul>				</div>
+</ul>
+
+				</div>
 			</div>
 			
 		</div>
@@ -136,7 +140,7 @@ if ($Session_UserID == ''){
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Register</h1>
+							<h1>Create Job</h1>
 						</div>
 					</div>
 				</div>
@@ -148,26 +152,81 @@ if ($Session_UserID == ''){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 animate-box">
+					<h3>Create Job</h3>
 					
-<h3>Register</h3>
-					
-<form action="jucregister.php" method="post">
+<form action="juccreatejob.php" method="post">
 						
 <div class="row form-group">
 							
-<div class="col-md-6">
+<div class="col-md-12">
 								
-<!-- <label for="fname">First Name</label> -->
+<!-- <label for="fname">Job Name</label> -->
 								
-<input type="text" name="txtFirstName" id="txtFirstName" class="form-control" placeholder="Enter your firstname">
+<input type="text" name="txtJobName" id="txtJobName" class="form-control" placeholder="Enter Job Name">
 							
 </div>
 							
-<div class="col-md-6">
+						
+</div>
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
 								
-<!-- <label for="lname">Last Name</label> -->
+<!-- <label for="email">Address</label> -->
 								
-<input type="text" name="txtLastName" id="txtLastName" class="form-control" placeholder="Enter your lastname">
+<input type="text" name="txtJobAddress" id="txtJobAddress" class="form-control" placeholder="Enter Address">
+							
+</div>
+						
+</div>
+						
+							
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">Description</label> -->
+								
+<input type="text" name="txtJobDesc" id="txtJobDesc" class="form-control" placeholder="Enter Description">
+							
+</div>
+
+</div>					
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">JobType</label> -->
+								
+<input type="text" name="txtJobType" id="txtJobType" class="form-control" placeholder="Enter Job Type">
+							
+</div>
+						
+</div>
+						
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">PersonInCharge</label> -->
+								
+<input type="text" name="txtJobPersonInCharge" id="txtJobPersonInCharge" class="form-control" placeholder="Enter Person In Charge">
+							
+</div>
+						
+</div>
+						
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">Contact</label> -->
+								
+<input type="text" name="txtJobContactNumber" id="txtJobContactNumber" class="form-control" placeholder="Enter Contact Number">
 							
 </div>
 						
@@ -178,50 +237,24 @@ if ($Session_UserID == ''){
 							
 <div class="col-md-12">
 								
-<!-- <label for="email">Email</label> -->
+<!-- <label for="password">Skill</label> -->
 								
-<input type="text" name="txtEmail" id="txtEmail" class="form-control" placeholder="Enter your email address">
+<input type="text" name="txtJobSkillRequired" id="txtJobSkillRequired" class="form-control" placeholder="Enter Skill">
 							
 </div>
 						
 </div>
 
 						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="password">Password</label> -->
-								
-<input type="password" name="txtPassword" id="txtPassword" class="form-control" placeholder="Enter your password">
-							
-</div>
-						
-</div>
-
-						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="Type">Type</label> -->
-								
-<input type="text" name="txtType" id="txtType" class="form-control" placeholder="Client/User">
-							
-</div>
-						
-</div>
-
-
 <div class="form-group">
 							
-<input type="submit" value="Register" class="btn btn-primary">
-						</div>
+<input type="submit" value="Create" class="btn btn-primary">
+						
+</div>
 
 					
 </form>		
-				
-</div>
+				</div>
 				
 			</div>
 			
@@ -233,54 +266,30 @@ if ($Session_UserID == ''){
 			<p>
 				<small class="block">All Rights Reserved.</small> <br>
 				<small class="block">Designed by 2K</small>
-			
-</p>
-		
-</div>
+			</p>
+		</div>
+	</div>
 
-</div>
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
 
-	
-<div class="gototop js-top">
-		
-<a href="#" class="js-gotop">
-<i class="icon-arrow-up"></i></a>
-	
-</div>
-	
-	
-<!-- jQuery -->
-	
-<script src="js/jquery.min.js"></script>
-	
-<!-- jQuery Easing -->
-	
-<script src="js/jquery.easing.1.3.js"></script>
-	
-<!-- Bootstrap -->
-	
-<script src="js/bootstrap.min.js"></script>
-	
-<!-- Waypoints -->
-	
-<script src="js/jquery.waypoints.min.js"></script>
-	
-<!-- countTo -->
-	
-<script src="js/jquery.countTo.js"></script>
-	
-<!-- Magnific Popup -->
-	
-<script src="js/jquery.magnific-popup.min.js"></script>
-	
-<script src="js/magnific-popup-options.js"></script>
-	
-<!-- Main -->
-	
-<script src="js/main.js"></script>
-
-	
-</body>
-
+	</body>
 </html>
 

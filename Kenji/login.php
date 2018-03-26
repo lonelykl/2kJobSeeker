@@ -71,9 +71,20 @@
 	
 </head>
 	
+<?php
+$sessionInfoCond = '';
+if (isset($_REQUEST["userID"])) {
+    $Session_UserID = $_REQUEST["userID"];
+    $Session_UserType = $_REQUEST["userType"];
+    $sessionInfoCond = "?userID=$Session_UserID&userType=$Session_UserType";
+}else{  
+    $Session_UserID = '';
+    $Session_UserType = '';
+}
+
+?>
 <body>
-		
-	
+
 <div class="fh5co-loader"></div>
 	
 	
@@ -88,7 +99,7 @@
 <div class="col-xs-2" style = "width: 30%;">
 					
 <div id="fh5co-logo">
-<a href="index.html">Jinjang Utara Community</a>
+<?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Jinjang Utara Community</a>
 </div>
 				
 </div>
@@ -96,21 +107,39 @@
 <div class="col-xs-10 text-right menu-1" style = "width: 68%;">
 					
 <ul>
+<li><?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Home</a></li>
 						
-<li><a href="index.html">Home</a></li>
+<li><?php echo '<a href="about.php'.$sessionInfoCond.'">';?>About</a></li>
 						
-<li><a href="about.html">About</a></li>
+<li><?php echo '<a href="service.php'.$sessionInfoCond.'">';?>Services</a></li>
 						
-<li><a href="services.html">Services</a></li>
+<li><?php echo '<a href="work.php'.$sessionInfoCond.'">';?>Donation</a></li>
 						
-<li><a href="work.html">Donation</a></li>
+<li><?php echo '<a href="contact.php'.$sessionInfoCond.'">';?>Contact</a></li>
+<?php 
+if ($Session_UserID != ''){
+?>
 						
-<li><a href="contact.html">News</a></li>
-						
+<li><?php echo '<a href="updateinfo.php'.$sessionInfoCond.'">';?>Update Info</a></li>			
+<li><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
+
+<?php
+}
+?>
+						<?php 
+if ($Session_UserID == ''){
+?>
 <li class="active"><a href="login.php">Login</a></li>
-					
-</ul>
-				
+	
+<?php 
+}else { 
+?>
+<li><a href="index.html">LogOut</a></li>
+	
+<?php
+}
+?>
+					</ul>			
 </div>
 			
 </div>
@@ -160,7 +189,7 @@
 					
 <h3>Login</h3>
 					
-<form name="loginForm" action="juclogin.php" onsubmit="return(validate());" method="post">
+<form action="juclogin.php" method="post">
 
 						
 <div class="row form-group">
@@ -258,9 +287,6 @@
 	
 <script src="js/main.js"></script>
 
-<!-- validate -->
-
-<script src="js/test.js"></script>
 	
 </body>
 
