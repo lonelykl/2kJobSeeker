@@ -129,6 +129,7 @@ if (isset($_REQUEST["userID"])) {
 <div id="fh5co-logo">
 <?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Jinjang Utara Community</a>
 </div>
+</div>
 				
 <div class="col-xs-10 text-right menu-1" style = "width: 70%;">
 					
@@ -175,7 +176,7 @@ if ($Session_UserID == ''){
 ?>						
 </ul>
 				</div>
-			</div>
+			
 			
 		</div>
 	</nav>
