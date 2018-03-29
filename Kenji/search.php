@@ -78,6 +78,7 @@ if (isset($_REQUEST["userID"])) {
 				</div>
 				<div class="col-xs-10 text-right menu-1" style = "width: 68%;">
 					<ul>
+						
 <li><?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Home</a></li>
 						
 <li><?php echo '<a href="about.php'.$sessionInfoCond.'">';?>About</a></li>
@@ -86,18 +87,24 @@ if (isset($_REQUEST["userID"])) {
 						
 <li><?php echo '<a href="work.php'.$sessionInfoCond.'">';?>Donation</a></li>
 						
-<li><?php echo '<a href="contact.php'.$sessionInfoCond.'">';?>Contact</a></li>
+<li class="active"><?php echo '<a href="contact.php'.$sessionInfoCond.'">';?>Contact</a></li>
 <?php 
 if ($Session_UserID != ''){
 ?>
 						
 <li><?php echo '<a href="updateinfo.php'.$sessionInfoCond.'">';?>Update Info</a></li>			
-<li class="active"><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
+<li><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
 
 <?php
 }
+?>					
+<?php 
+if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){						
 ?>
-						<?php 
+<li><?php echo '<a href="createjob.php'.$sessionInfoCond.'">';?>Create Job</a></li>
+						
+<?php } ?>
+<?php 
 if ($Session_UserID == ''){
 ?>
 <li><a href="login.php">Login</a></li>
@@ -109,8 +116,8 @@ if ($Session_UserID == ''){
 	
 <?php
 }
-?>
-					</ul>
+?>					
+</ul>
 				</div>
 			</div>
 			
