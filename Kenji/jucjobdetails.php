@@ -1,14 +1,73 @@
+<!DOCTYPE HTML>
 <html>
-<body>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Jinjang Utara Community</title>
+	
 
-<script>
-function goBack() {
-    window.history.back();
+	
+  <!-- 
+	//////////////////////////////////////////////////////
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+<?php
+$sessionInfoCond = '';
+if (isset($_REQUEST['userID'])) {
+    $Session_UserID = $_REQUEST["userID"];
+    $Session_UserType = $_REQUEST["userType"];
+    $sessionInfoCond = "&userID=$Session_UserID&userType=$Session_UserType";
+}else{  
+    $Session_UserID = '';
+    $Session_UserType = '';
 }
-</script>
-<?php 
 
-  require_once 'config/lf_connect.php';
+require_once 'function/lf_common_function.php';
+	$cf = new lf_common_function();
+        
+	require_once 'config/lf_connect.php';
         $db = new lf_connect();
 	$conn = $db->connect();
 
@@ -18,103 +77,173 @@ $seqNo = 0;
 $comcode = 'kv';
 $string = $_REQUEST['txtJobID'];
 
-$stmt = $conn->prepare("SELECT lf_job_id,lf_job_name,lf_job_desc,lf_job_status,lf_job_type from lf_job_master where lf_comp_code = ? and lf_job_id = ?");
+$userRequestedCond = " where lf_comp_code = '$comcode' and lf_job_id = '$string' and lf_job_applicant_id = '$Session_UserID' and lf_job_applicant_status <> 'c'";
+$userRequested = $cf->getNumRow('lf_job_applicant',$userRequestedCond);
+
+$stmt = $conn->prepare("SELECT lf_job_id,lf_job_name,lf_job_desc,lf_job_status,lf_job_type,lf_skill_required,lf_job_in_charge,lf_job_contact,lf_job_address from lf_job_master where lf_comp_code = ? and lf_job_id = ?");
 $stmt->bind_param("ss",$comcode,$string);
 $stmt->execute();
-$stmt->bind_result($token2,$token3,$token4,$token5,$token6);
+$stmt->bind_result($token2,$token3,$token4,$token5,$token6,$token7,$token8,$token9,$token10);
 
 while ( $stmt-> fetch() ) { 
 ?>
-<table border ='1'>
-<tr style="display:none">
-<td>
-Session ID
-</td>
-<td>
-:
-</td>
-<td>
-<?php //echo $_REQUEST['userID']; ?>
-</td>
-</tr>
 
-<tr>
-<td>
-Job ID
-</td>
-<td>
-:
-</td>
-<td>
-<?php echo $token2; ?>
-</td>
-</tr>
+	<body>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 animate-box">
+					<h3>Job Information</h3>
+<div class="row form-group">
+							
+<div class="col-md-6">
+								
+<!-- <label for="fname">Job ID</label> -->
+								
+<input type="text" name="txtJobID" id="txtJobID" class="form-control" placeholder="Enter Job ID" readonly value="<?php echo $token2 ?>">
+							
+</div>
+							
+						
+</div>
+	
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="fname">Job Name</label> -->
+								
+<input type="text" name="txtJobName" id="txtJobName" class="form-control" placeholder="Enter Job Name" readonly value="<?php echo $token3 ?>">
+							
+</div>
+							
+						
+</div>
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">Address</label> -->
+								
+<input type="text" name="txtJobAddress" id="txtJobAddress" class="form-control" placeholder="Enter Address" readonly value="<?php echo $token10 ?>">
+							
+</div>
+						
+</div>
+		
 
-<tr>
-<td>
-Job Name
-</td>
-<td>
-:
-</td>
-<td>
-<?php echo $token3; ?>
-</td>
-</tr>
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">Description</label> -->
+								
+<input type="text" name="txtJobDesc" id="txtJobDesc" class="form-control" placeholder="Enter Description" readonly value="<?php echo $token4 ?>">
+							
+</div>
 
-<tr>
-<td>
-Job Desc
-</td>
-<td>
-:
-</td>
-<td>
-<?php echo $token4; ?>
-</td>
-</tr>
+</div>					
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">JobType</label> -->
+								
+<input type="text" name="txtJobType" id="txtJobType" class="form-control" placeholder="Enter Job Type" readonly value="<?php echo $token6 ?>">
+							
+</div>
+						
+</div>
+						
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">PersonInCharge</label> -->
+								
+<input type="text" name="txtJobPersonInCharge" id="txtJobPersonInCharge" class="form-control" placeholder="Enter Person In Charge" readonly value="<?php echo $token8 ?>">
+							
+</div>
+						
+</div>
+						
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="email">Contact</label> -->
+								
+<input type="text" name="txtJobContactNumber" id="txtJobContactNumber" class="form-control" placeholder="Enter Contact Number" readonly value="<?php echo $token9 ?>">
+							
+</div>
+						
+</div>
 
-<tr>
-<td>
-Job Status
-</td>
-<td>
-:
-</td>
-<td>
-<?php echo $token5; ?>
-</td>
-</tr>
+						
+<div class="row form-group">
+							
+<div class="col-md-12">
+								
+<!-- <label for="password">Skill</label> -->
+								
+<input type="text" name="txtJobSkillRequired" id="txtJobSkillRequired" class="form-control" placeholder="Enter Skill" readonly value="<?php echo $token7 ?>">
+							
+</div>
+				
+</div>
 
-<tr>
-<td>
-Job Type
-</td>
-<td>
-:
-</td>
-<td>
-<?php echo $token6; ?>
-</td>
-</tr>
+ 
+<div class="form-group">
+<?php } 
+ $stmt->close();
+?>
+<?php if ($userRequested == 0){ ?>
+<form action="jucapplyjob.php?txtJobID=<?php echo $token2.$sessionInfoCond ?>" method="post">
+								
+<input type="submit" value="Apply" class="btn btn-primary">
+</form>	
+<?php } else { ?>
+<form action="juccanceljob.php?txtJobID=<?php echo $token2.$sessionInfoCond ?>" method="post">
+	
+<input type="submit" value="Cancel Request" class="btn btn-primary">
+</form>	
+<?php } ?>
+<input type="button" value="Back" class="btn btn-primary" onclick="goBack()">
+						</div>
 
 
-    <?php  }
- $stmt->close();?>
-</table>
-<br>
-<table border='0'>
-<tr>
-<td width='100px'>
-<button onclick="goBack()">Back</button>
-</td>
-<td width='10px'>
-</td>
-<td width='100px'>
-<button onclick="goBack()">Apply</button>
-</td>
-</tr>
-</table>
+						
+				</div>
+				
+			</div>
+			
+		</div>
+	
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
 
-</body>
+	</body>
 </html>

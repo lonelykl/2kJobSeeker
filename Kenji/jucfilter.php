@@ -1,8 +1,15 @@
 <html>
 <body>
-<?php 
-
-
+<?php
+$sessionInfoCond = '';
+if (isset($_REQUEST["userID"])) {
+    $Session_UserID = $_REQUEST["userID"];
+    $Session_UserType = $_REQUEST["userType"];
+    $sessionInfoCond = "&userID=$Session_UserID&userType=$Session_UserType";
+}else{  
+    $Session_UserID = '';
+    $Session_UserType = '';
+}
 
         require_once 'config/lf_connect.php';
         $db = new lf_connect();
@@ -72,7 +79,7 @@ $seqNo = $seqNo +1;
 <?php echo $token6; ?>
 </td>
 <td>
-<input type="submit" value="View" id="btnView" onclick="location.href ='jucjobdetails.php?txtJobID=<?php echo $token2; ?>'">
+<input type="submit" value="View" id="btnView" onclick="location.href ='jucjobdetails.php?txtJobID=<?php echo $token2.$sessionInfoCond;?>'">
 </td>
           <?php  }
  $stmt->close();?>

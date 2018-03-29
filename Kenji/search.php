@@ -138,7 +138,7 @@ if ($Session_UserID == ''){
 					<div class="col-md-6 col-md-pull-1" style="width: 110%;">
 						<div class="desc" style="">
 							<h2>Search</h2>
-<form action="jucfilter.php<?php $sessionInfoCond ?>" method="post" target="iframe1">
+<form action="jucfilter.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
 							<select name="txtFilter">
 								<option value="education">Education</option>
 								<option value="service">Service</option>
