@@ -206,7 +206,17 @@ if ($Session_UserID == ''){
 								
 <!-- <label for="Type">Type</label> -->
 								
-<input type="text" name="txtType" id="txtType" class="form-control" placeholder="Client/User">
+<label class="radio-inline">
+
+<input type="radio" name="txtType" id="txtType">Client
+
+</label>
+
+<label class="radio-inline">
+
+<input type="radio" name="txtType" id="txtType">User
+
+</label>
 							
 </div>
 						
