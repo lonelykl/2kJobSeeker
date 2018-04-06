@@ -127,13 +127,18 @@ if ($Session_UserID == ''){
 ?>						
 </ul>
 
-				</div>
-			</div>
+				
+</div>
 			
-		</div>
-	</nav>
+</div>
+			
+		
+</div>
+	
+</nav>
 
-	<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_2.jpg);">
+	
+<header id="fh5co-header" class="fh5co-cover fh5co-cover-sm" role="banner" style="background-image:url(images/img_bg_2.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -152,85 +157,69 @@ if ($Session_UserID == ''){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 animate-box">
-					<h3>Create Job</h3>
 					
-<form action="juccreatejob.php" method="post">
+<h3>Create Job</h3>
+					
+<form action="juccreatejob.php<?php echo $sessionInfoCond ?>" method="post">
 						
 <div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="fname">Job Name</label> -->
+								<input type="text" name="txtJobName" id="txtJobName" class="form-control" placeholder="Enter Job Name">
+							</div>
 							
-<div class="col-md-12">
-								
-<!-- <label for="fname">Job Name</label> -->
-								
-<input type="text" name="txtJobName" id="txtJobName" class="form-control" placeholder="Enter Job Name">
-							
-</div>
-							
+						</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Address</label> -->
+								<input type="text" name="txtJobAddress" id="txtJobAddress" class="form-control" placeholder="Enter Address">
+							</div>
+						</div>
 						
-</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Description</label> -->
+								<input type="text" name="txtJobDesc" id="txtJobDesc" class="form-control" placeholder="Enter Description">
+							</div>
+						</div>
 						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="email">Address</label> -->
-								
-<input type="text" name="txtJobAddress" id="txtJobAddress" class="form-control" placeholder="Enter Address">
-							
-</div>
-						
-</div>
-						
-							
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="email">Description</label> -->
-								
-<input type="text" name="txtJobDesc" id="txtJobDesc" class="form-control" placeholder="Enter Description">
-							
-</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">JobType</label> -->
+								<select name="txtJobType" id="txtJobType" style="width: 100%;">
 
-</div>					
+									<option value="service">Service</option>
+  
+									<option value="education">Education</option>
+  
+									<option value="cook">Cook</option>
+  
+									<option value="it">IT</option>
+
+								</select>
+							</div>
+						</div>
 						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="email">JobType</label> -->
-								
-<input type="text" name="txtJobType" id="txtJobType" class="form-control" placeholder="Enter Job Type">
-							
-</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">PersonInCharge</label> -->
+								<input type="text" name="txtJobPersonInCharge" id="txtJobPersonInCharge" class="form-control" placeholder="Enter Person in charge">
+							</div>
+						</div>
 						
-</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Contact</label> -->
+								<input type="text" name="txtJobContactNumber" id="txtJobContactNumber" class="form-control" placeholder="Enter Contact Number">
+							</div>
+						</div>
 						
-						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="email">PersonInCharge</label> -->
-								
-<input type="text" name="txtJobPersonInCharge" id="txtJobPersonInCharge" class="form-control" placeholder="Enter Person In Charge">
-							
-</div>
-						
-</div>
-						
-						
-<div class="row form-group">
-							
-<div class="col-md-12">
-								
-<!-- <label for="email">Contact</label> -->
-								
-<input type="text" name="txtJobContactNumber" id="txtJobContactNumber" class="form-control" placeholder="Enter Contact Number">
-							
-</div>
-						
-</div>
+						<div class="row form-group">
+							<div class="col-md-12">
+								<!-- <label for="email">Max Participants</label> -->
+								<input type="text" name="txtMaxParticipants" id="txtMaxParticipants" class="form-control" placeholder="Enter Max Participants">
+							</div>
+						</div>
 
 						
 <div class="row form-group">
