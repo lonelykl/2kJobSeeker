@@ -21,7 +21,7 @@ $seqNo = 0;
 $comcode = 'kv';
 $string = $_REQUEST['txtFilter'];
 
-$cond = "where lf_comp_code = '$comcode' ";
+$cond = "where lf_comp_code = '$comcode' and lf_job_status <> 'c'";
 
 if ($string != ''){ 
 $cond .= " and lf_job_type = '$string'" ; 
