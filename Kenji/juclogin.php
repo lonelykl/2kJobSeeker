@@ -7,19 +7,21 @@
         $db = new lf_connect();
 	$conn = $db->connect();
 
+ 	require_once 'config/lf_ipsetting.php';
+
 $txtEmail = $_REQUEST['txtEmail'];
 $txtPassword = $_REQUEST['txtPassword'];
-$loginUserID = '1';
-$loginUserType = 'user';
-$loginUserTypeBool = true;
+$loginUserID = '';
+$loginUserType = '';
+$userFirstLogin = false;
+$sessionInfoCond = '';
+$path = IP_CONFIG;
 
-//$redirect_url_logon_client = 'http://192.168.1.6/comunity/adminmainpage.php';//$redirect_url_logon_user = 'http://192.168.1.6/comunity/usermainpage.html';
-//$redirect_url_logon_update = 'http://192.168.1.6/updateInfo.php';
-//$redirect_url_logon_fail = 'http://192.168.1.6';
+$redirect_url_logon_mainpage = 'http://'.$path.'/comunity/mainpage.php';
+$redirect_url_logon_update = 'http://'.$path.'/comunity/updateInfoform.php';
+$redirect_url_logon_fail = 'http://'.$path.'/comunity/login.php';
 
-$redirect_url_logon_client = 'http://lonelyfamily.ddns.net/comunity/adminmainpage.php';
-$redirect_url_logon_user = 'http://lonelyfamily.ddns.net/comunity/usermainpage.html';$redirect_url_logon_update = 'http://lonelyfamily.ddns.net/updateInfo.php';
-$redirect_url_logon_fail = 'http://lonelyfamily.ddns.net';
+
 $result= false;
 
 
@@ -27,12 +29,14 @@ $stmt = $conn->prepare("SELECT lf_userid,lf_email,lf_type from lf_member_master 
 $stmt->bind_param("ss",$txtEmail,$txtPassword);
 $stmt->execute();
 $stmt->bind_result($token2,$token3,$token4);
-$stmt->store_result();
 
-        if ($stmt->num_rows > 0) {
+        if ($stmt->fetch()) {
             // user existed
-            $stmt->close();
+	    $loginUserID = $token2;
+	    $loginUserType = $token4;
+	    $stmt->close();
             $result = true;
+	    $userFirstLogin = $cf->checkFirstLogin($loginUserID); 
         } else {
             // user not existed
             $stmt->close();
@@ -42,16 +46,17 @@ $stmt->store_result();
 
 if($result)
 {
-if($loginUserTypeBool){
-//$redirect_url_logon_client .= "?userID=$loginUserID&userType=$loginUserType";
-header("Location: $redirect_url_logon_client");
+if($userFirstLogin){
+$redirect_url_logon_update .=  "?userID=$loginUserID&userType=$loginUserType";
+echo "<script type='text/javascript'>alert('First Time log in detected, please update personal information.');window.location = '$redirect_url_logon_update'</script>";
 exit();
 }else{
-header("Location: $redirect_url_logon_user");
+$redirect_url_logon_mainpage .= "?userID=$loginUserID&userType=$loginUserType";
+header("Location: $redirect_url_logon_mainpage");
 exit();
 }
 }else{
-header("Location: $redirect_url_logon_fail");
+echo "<script type='text/javascript'>alert('Login Failed... Please Try Again...');window.location = '$redirect_url_logon_fail'</script>";
 exit();
 }
 
