@@ -152,7 +152,7 @@ if ($Session_UserID == ''){
 	</header>
 	
 	<div class="fh5co-section">
-		<div class="container">
+		<div class="container" style="width: 100%; height: 100%;">
 			<div class="row">
 				<div class="col-md-6 animate-box"><table>
 <tr>
@@ -161,16 +161,16 @@ if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){
 ?>
 <td>
 <form action="jucfilterjob.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="Job Info" class="btn btn-primaty">
+<input type="submit" value="Job Info" class="btn btn-primary">
 </form></td>
 <?php } ?>
 <td>
 <form action="updateinfoform.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="User Info" class="btn btn-primaty">
+<input type="submit" value="User Info" class="btn btn-primary" style="margin-left: 800%; margin-top: -75%; width: 100%;">
 </form>
 </td>
 </tr></table>
-					<iframe scr="#" name="iframe1" id="iframe1" style="border:1; width: 200%;height: 650px;" onLoad="this.contentWindow.location"></iframe>
+					<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 203%;height: 650px;" onLoad="this.contentWindow.location"></iframe>
 				</div>
 				
 			</div>
