@@ -162,15 +162,19 @@ if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){
 <td>
 <form action="jucfilterjob.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
 <input type="submit" value="Job Info" class="btn btn-primary">
-</form></td>
+</form>
+</td>
+</tr>
+<tr>
 <?php } ?>
 <td>
 <form action="updateinfoform.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="User Info" class="btn btn-primary" style="margin-left: 800%; margin-top: -75%; width: 100%;">
+<input type="submit" value="User Info" class="btn btn-primary" style="margin-left: 1000%; margin-top: -75%; width: 100%;">
 </form>
 </td>
-</tr></table>
-					<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 203%;height: 650px;" onLoad="this.contentWindow.location"></iframe>
+</tr>
+</table>
+					<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 203%;height: 706px;" onLoad="this.contentWindow.location"></iframe>
 				</div>
 				
 			</div>
