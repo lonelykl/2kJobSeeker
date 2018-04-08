@@ -87,13 +87,13 @@ if (isset($_REQUEST["userID"])) {
 						
 <li><?php echo '<a href="work.php'.$sessionInfoCond.'">';?>Donation</a></li>
 						
-<li class="active"><?php echo '<a href="contact.php'.$sessionInfoCond.'">';?>Contact</a></li>
+<li><?php echo '<a href="contact.php'.$sessionInfoCond.'">';?>Contact</a></li>
 <?php 
 if ($Session_UserID != ''){
 ?>
 						
 <li><?php echo '<a href="updateinfo.php'.$sessionInfoCond.'">';?>Update Info</a></li>			
-<li><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
+<li class="active"><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
 
 <?php
 }
@@ -153,7 +153,7 @@ if ($Session_UserID == ''){
 							</select>
 								<input type="submit" value="Submit" class="btn btn-primary">
 </form>
-								<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 255%;height: 650px;"></iframe>
+								<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 255%;height: 706px;"></iframe>
 						</div>
 					</div>
 				</div>
