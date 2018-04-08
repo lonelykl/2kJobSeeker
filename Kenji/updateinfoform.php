@@ -98,8 +98,8 @@ while ( $stmt-> fetch() ) {
 	
 	<div class="fh6co-section">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 animate-box">
+			<div class="row" style="text-align: center;">
+				<div class="col-md-6 animate-box" style="left: 26%;">
 					<h3>Update Info</h3>
 					<form name="createJobForm" action="jucupdatemember.php<?php echo $sessionInfoCond ?>" method="post">
 					<div class="row form-group">
