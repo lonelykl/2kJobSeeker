@@ -142,7 +142,7 @@ if ($Session_UserID == ''){
 		<div class="container">
 			<div class="about-content">
 				<div class="row animate-box">
-					<div class="col-md-6 col-md-pull-1" style="width: 110%;">
+					<div class="col-md-6 col-md-pull-1">
 						<div class="desc" style="">
 							<h2>Search</h2>
 <form action="jucfilter.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
@@ -151,9 +151,9 @@ if ($Session_UserID == ''){
 								<option value="service">Service</option>
 								<option value="f&b">Food And Beverage</option>
 							</select>
-								<input type="submit" value="Submit" class="btn btn-primaty">
+								<input type="submit" value="Submit" class="btn btn-primary">
 </form>
-								<iframe scr="#" name="iframe1" id="iframe1" style="border:1; width: 100%;height: 500px;"></iframe>
+								<iframe scr="#" name="iframe1" id="iframe1" style="border:0px; width: 255%;height: 650px;"></iframe>
 						</div>
 					</div>
 				</div>
