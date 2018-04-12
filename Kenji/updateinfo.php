@@ -83,12 +83,12 @@ if (isset($_REQUEST["userID"])) {
 	<nav class="fh5co-nav" role="navigation">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-2" style = "width: 30%;">
+				<div class="col-xs-2" style = "width: 20%; text-align: center;">
 					<div id="fh5co-logo">
 <?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Jinjang Utara Community</a>
 </div>
 				</div>
-				<div class="col-xs-10 text-right menu-1" style = "width: 70%;">
+				<div class="col-xs-10 text-right menu-1" style = "width: 80%;">
 					<ul>
 						
 <li><?php echo '<a href="mainpage.php'.$sessionInfoCond.'">';?>Home</a></li>
@@ -106,6 +106,7 @@ if ($Session_UserID != ''){
 						
 <li class="active"><?php echo '<a href="updateinfo.php'.$sessionInfoCond.'">';?>Update Info</a></li>			
 <li><?php echo '<a href="search.php'.$sessionInfoCond.'">';?>Search</a></li>
+<li><?php echo '<a href="listhistory.php'.$sessionInfoCond.'">';?>List Job</a><li>
 
 <?php
 }
