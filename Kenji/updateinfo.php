@@ -162,7 +162,7 @@ if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){
 ?>
 <td>
 <form action="jucfilterjob.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="Job Info" class="btn btn-primary">
+<input type="submit" value="Job Info" class="btn btn-primary" style="margin-left: 895%; margin-top: -30%; width: 100%;">
 </form>
 </td>
 </tr>
