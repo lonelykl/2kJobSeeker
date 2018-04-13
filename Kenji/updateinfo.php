@@ -162,7 +162,7 @@ if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){
 ?>
 <td>
 <form action="jucfilterjob.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="Job Info" class="btn btn-primary" style="margin-left: 895%; margin-top: -30%; width: 100%;">
+<input type="submit" value="Job Info" class="btn btn-primary" style="margin-left: 720%; margin-top: -30%; width: 100%;">
 </form>
 </td>
 </tr>
@@ -170,7 +170,7 @@ if ($Session_UserType == 'client' ||$Session_UserType == 'Client'){
 <?php } ?>
 <td>
 <form action="updateinfoform.php<?php echo $sessionInfoCond ?>" method="post" target="iframe1">
-<input type="submit" value="User Info" class="btn btn-primary" style="margin-left: 1000%; margin-top: -75%; width: 100%;">
+<input type="submit" value="User Info" class="btn btn-primary" style="margin-left: 850%; margin-top: -75%; width: 100%;">
 </form>
 </td>
 </tr>
